@@ -129,5 +129,11 @@
         "statements": 90
       }
     }
+  },
+  "devDependencies": {
+    "concurrently": "7.3.0",
+    "cypress": "10.5.0",
+    "json-server": "0.17.0",
+    "json-server-auth": "2.1.0"
   }
 }
