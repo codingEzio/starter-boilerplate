@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Main from './views/pages/Home';
 import AboutPage from './views/pages/AboutPage';
@@ -11,6 +11,8 @@ const Routes = () => {
       <Route exact path="/" component={Main} />
       <Route exact path="/about" component={AboutPage} />
       <Route exact path="/not-found" component={NotFoundPage} />
+
+      <Redirect from={'*'} to={'/not-found'} exact />
     </Switch>
   );
 };
