@@ -4,24 +4,10 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-  }),
-);
+import { Link } from 'react-router-dom';
+import { colors } from '@material-ui/core';
 
 export default function NavigationBar() {
   const classes = useStyles();
@@ -30,20 +16,38 @@ export default function NavigationBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
+          <Link className={`${classes.link} ${classes.title}`} to={'/'}>
+            LOGO
+          </Link>
+
+          <Button color="inherit">
+            <Link to={'/'}>Home</Link>
+          </Button>
+          <Button color="inherit">About</Button>
+          <Button color="inherit">Dashboard</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+
+// CSS-in-JS in the Material UI's way (one of them)
+// https://v4.mui.com/styles/basics/#hook-api
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    link: {
+      color: colors.lightBlue[50],
+      textDecoration: 'none',
+    },
+    title: {
+      flexGrow: 1,
+    },
+  }),
+);
