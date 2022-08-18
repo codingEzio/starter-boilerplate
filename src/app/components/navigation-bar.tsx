@@ -23,7 +23,9 @@ export default function NavigationBar() {
           <Button color="inherit">
             <Link to={'/'}>Home</Link>
           </Button>
-          <Button color="inherit">About</Button>
+          <Button color="inherit">
+            <Link to={'/about'}>About</Link>
+          </Button>
           <Button color="inherit">Dashboard</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
