@@ -16,9 +16,9 @@ const Routes = () => {
       <Container>
         <Route exact path="/" component={Main} />
         <Route exact path="/about" component={AboutPage} />
-        <Route exact path="/not-found" component={NotFoundPage} />
 
         <Route
+          exact
           path={'/dashboard'}
           render={({ match: { path } }) => (
             <Dashboard>
@@ -39,6 +39,7 @@ const Routes = () => {
           )}
         />
 
+        <Route exact path="/not-found" component={NotFoundPage} />
         <Redirect from={'*'} to={'/not-found'} exact />
       </Container>
     </Switch>
