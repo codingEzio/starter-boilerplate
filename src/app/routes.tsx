@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { Container } from '@material-ui/core';
@@ -12,10 +12,16 @@ import SettingsAndPrivacy from './views/dashboard/settings-and-privacy';
 
 const Routes = () => {
   return (
-    <Switch>
-      <Container>
+    <Suspense>
+      <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/about" component={AboutPage} />
+
+        <Route
+          exact
+          path="/about"
+          component={lazy(() => import('./views/pages/AboutPage'))}
+        />
 
         <Route
           exact
@@ -26,13 +32,17 @@ const Routes = () => {
                 <Route
                   exact
                   path={path + '/'}
-                  component={DashboardDefaultContent}
+                  component={lazy(() =>
+                    import('./views/dashboard/dashboard-default-content'),
+                  )}
                 />
 
                 <Route
                   exact
                   path={path + '/settings-and-privacy'}
-                  component={SettingsAndPrivacy}
+                  component={lazy(() =>
+                    import('./views/dashboard/settings-and-privacy'),
+                  )}
                 />
               </Switch>
             </Dashboard>
@@ -41,8 +51,8 @@ const Routes = () => {
 
         <Route exact path="/not-found" component={NotFoundPage} />
         <Redirect from={'*'} to={'/not-found'} exact />
-      </Container>
-    </Switch>
+      </Switch>
+    </Suspense>
   );
 };
 
