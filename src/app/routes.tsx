@@ -1,21 +1,17 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import { Container } from '@material-ui/core';
+import { LinearProgress } from '@material-ui/core';
 
 import Main from './views/pages/Home';
-import AboutPage from './views/pages/AboutPage';
 import NotFoundPage from './views/pages/NotFoundPage';
 import Dashboard from './layouts/dashboard-layout';
-import DashboardDefaultContent from './views/dashboard/dashboard-default-content';
-import SettingsAndPrivacy from './views/dashboard/settings-and-privacy';
 
 const Routes = () => {
   return (
-    <Suspense>
+    <Suspense fallback={<LinearProgress style={{ margin: '10rem' }} />}>
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route exact path="/about" component={AboutPage} />
 
         <Route
           exact
