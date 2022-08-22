@@ -12,7 +12,7 @@ const Dashboard = ({ children }: Props) => {
     <Grid
       container
       direction="row"
-      justify="flex-start"
+      justify-content="flex-start"
       alignItems="flex-start"
     >
       <DashboardSidebarNavigation />
