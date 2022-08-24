@@ -36,7 +36,9 @@ export default function NavigationBar() {
             </Link>
           </Button>
           <Button color="inherit">
-            <Link className={classes.link}>Login</Link>
+            <Link className={classes.link} to={'/login'}>
+              Login
+            </Link>
           </Button>
         </Toolbar>
       </AppBar>
