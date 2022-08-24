@@ -21,15 +21,23 @@ export default function NavigationBar() {
           </Link>
 
           <Button color="inherit">
-            <Link to={'/'}>Home</Link>
+            <Link className={classes.link} to={'/'}>
+              Home
+            </Link>
           </Button>
           <Button color="inherit">
-            <Link to={'/about'}>About</Link>
+            <Link className={classes.link} to={'/about'}>
+              About
+            </Link>
           </Button>
           <Button color="inherit">
-            <Link to={'/dashboard'}>Dashboard</Link>
+            <Link className={classes.link} to={'/dashboard'}>
+              Dashboard
+            </Link>
           </Button>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit">
+            <Link className={classes.link}>Login</Link>
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
