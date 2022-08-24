@@ -20,7 +20,6 @@ const Routes = () => {
         />
 
         <Route
-          exact
           path={'/dashboard'}
           render={({ match: { path } }) => (
             <Dashboard>
