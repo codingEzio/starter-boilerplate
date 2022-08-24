@@ -15,7 +15,7 @@ const Dashboard = ({ children }: Props) => {
       justify-content="flex-start"
       alignItems="flex-start"
     >
-      <DashboardSidebarNavigation />
+      <DashboardSidebarNavigation /> {children}
     </Grid>
   );
 };
