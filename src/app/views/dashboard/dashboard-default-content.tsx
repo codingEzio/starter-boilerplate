@@ -1,20 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { SaleType } from 'models/sale-type';
 import { getSalesAxios } from 'services/saleService';
 
-const fetchSales = async () => {
-  const data = await getSalesAxios();
-
-  console.log(data);
-};
-
 const DashboardDefaultContent = () => {
+  const [sales, setSales] = useState<SaleType[]>([]);
+
+  const fetchSales = async () => {
+    const { data } = await getSalesAxios();
+
+    console.log(data);
+    setSales(data);
+  };
+
   useEffect(() => {
     fetchSales();
   }, []);
 
   return (
     <div>
-      <h1>DashboardDefaultContent</h1>
+      <h1>This is the dashboard</h1>
+      <h2>sale records: {sales.length}</h2>
     </div>
   );
 };
